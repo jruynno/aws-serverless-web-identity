@@ -39,13 +39,13 @@ Instructions:
 
 *  [Open the console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1)
 
-    ![alt text](images/Stage1(1).png)
+    ![alt text](images/Stage1-1.png)
 * Open the bucket: **webidf-appbucket** | Objects within:
 
     * Index.html
 
     * Scripts.js
-    ![alt text](images/Stage1(2).png)
+    ![alt text](images/Stage1-2.png)
 
 5. Open private bucket: **webidf-patchesprivatebucket-**
     * Verify the images 3 images
