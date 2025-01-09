@@ -18,7 +18,7 @@ This project demonstrates the implementation of a serverless application using W
 
 * Users log in using their Google ID.
 
-* The application retrieves and displays images from a private S3 bucket using presigned URLs.
+* The application retrieves and displays Images from a private S3 bucket using presigned URLs.
 
 ## Stages
 
@@ -39,25 +39,25 @@ Instructions:
 
 *  [Open the console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1)
 
-    ![alt text](images/Stage1-1.png)
+    ![alt text](Images/Stage1-1.png)
 * Open the bucket: **webidf-appbucket** | Objects within:
 
     * Index.html
 
     * Scripts.js
-    ![alt text](images/Stage1-2.png)
+    ![alt text](Images/Stage1-2.png)
 
 5. Open private bucket: **webidf-patchesprivatebucket-**
-    * Verify the images 3 images
-![alt text](images/image-2.png)
+    * Verify the Images 3 Images
+![alt text](Images/image-2.png)
 
 6. Move to the **CloudFront Distribution**
 
     * [Open the CloudFront consle](https://us-east-1.console.aws.amazon.com/cloudfront/v3/home?region=us-east-1#/distributions)
     *  Open the distribution pointing at **webidf-appbucket-**
-    ![alt text](images/image-3.png)
+    ![alt text](Images/image-3.png)
     * Copy the **Distribution domain name**
-    ![alt text](images/image-6.png)
+    ![alt text](Images/image-6.png)
 
 
 
@@ -76,25 +76,25 @@ Instructions:
         If you don't have one, create a new valid google account
 2. Create Google API Project
 
-    1. Click **Select a Project** ![alt text](images/image-8.png)
+    1. Click **Select a Project** ![alt text](Images/image-8.png)
     2. Click **NEW PROJECT**
-    ![alt text](images/image-9.png)
+    ![alt text](Images/image-9.png)
     3. Enter Project name: **PetIDF**
-    ![alt text](images/image-10.png)
+    ![alt text](Images/image-10.png)
     4. Click **CREATE**
 
 
 3. Configure Cosnsent Screen
     1. Click the credentials page 
-    ![alt text](images/image-11.png)
+    ![alt text](Images/image-11.png)
     1. Click **CONFIGURE CONSENT SCREEN**
-    ![alt text](images/image-12.png)
+    ![alt text](Images/image-12.png)
     2. Click **External** 
-    ![alt text](images/image-13.png)
+    ![alt text](Images/image-13.png)
     3. Click **Create**
     4. Enter **App Name**, **User support email**, and **Developer contact information**
-    ![alt text](images/image-14.png)
-    ![alt text](images/image-15.png)
+    ![alt text](Images/image-14.png)
+    ![alt text](Images/image-15.png)
     5. Click SAVE AND CONTINUE
     6. Click SAVE AND CONTINUE
     7. Click SAVE AND CONTINUE
@@ -103,14 +103,14 @@ Instructions:
 
 4. Create Google API PROJECT CREDENTIALS
 
-    1. Click **CREDENTIALS** and **OAuth client ID** ![alt text](images/image-7.png)
-    ![alt text](images/image-5.png)
+    1. Click **CREDENTIALS** and **OAuth client ID** ![alt text](Images/image-7.png)
+    ![alt text](Images/image-5.png)
     2. In Applicaiton type choose **Web Application** and  Under Name enter **PetIDFServerlessApp**
-    ![alt text](images/image-16.png)
+    ![alt text](Images/image-16.png)
     3.  Click A**DD URI** under Authorized JavaScript origins 
     
         *This is the distribution domain name of the cloudfront distribution with https:// before it*
-    ![alt text](images/image-17.png)
+    ![alt text](Images/image-17.png)
     4. Click **CREATE** 
     * It will be prompt with two pieces of information
 
@@ -131,26 +131,26 @@ Instructions:
 
 1.  Move to the Cognito Console. [HERE](https://console.aws.amazon.com/cognito/home?region=us-east-1#)
 2. Click **Create identity pool**
-![alt text](images/image-18.png)
+![alt text](Images/image-18.png)
     1. Expand **Authentication Providers**, click on **Google+**, and click **Next**
-    ![alt text](images/image-19.png)
+    ![alt text](Images/image-19.png)
     2. Enter **PetIDPoolAuth_Role** under *IAM role name*, click **Next**
-    ![alt text](images/image-22.png)
+    ![alt text](Images/image-22.png)
     3. Enter Client ID from Google, and click **Next**
-    ![alt text](images/image-23.png)
+    ![alt text](Images/image-23.png)
     4. Enter **PetIDFIDPool** under *Name*, and click **Next**
-    ![alt text](images/image-24.png)
+    ![alt text](Images/image-24.png)
     5. Click **Create Identity Pool**
     6. Note down *Identity Pool ID*
-    ![alt text](images/image-25.png)
+    ![alt text](Images/image-25.png)
 3. Update Permissions
     1. Move to IAM console. [HERE](https://console.aws.amazon.com/iam/home?region=us-east-1#/home)
     2. Under *Roles*, Look for **Cognito_PetIDFPoolAuth_Role**
-    ![alt text](images/image-26.png)
+    ![alt text](Images/image-26.png)
     3. Under *Permissions*, click *Attach Policies*
-    ![alt text](images/image-27.png)
+    ![alt text](Images/image-27.png)
     4. Select *PrivatePatchesPermissions*, click **Add Permissions**
-    ![alt text](images/image-28.png)
+    ![alt text](Images/image-28.png)
 
 
 
@@ -165,33 +165,33 @@ Instructions:
     * Under *General Purpose Buckets*, click *webidf-appbucket*
     2. Select *index.html*, and click **Download**
     3. Select *scripts.js*, and click **Download**
-    ![alt text](images/image-29.png)
+    ![alt text](Images/image-29.png)
 
 
 2. Open index.html on text editor   
     * Specify Google client ID
     * Save
-    ![alt text](images/image-30.png) 
+    ![alt text](Images/image-30.png) 
 
 3. Open sripts.js on text editor   
     * Paste cognito identity pool id
-    ![alt text](images/image-31.png) 
+    ![alt text](Images/image-31.png) 
     * Paste the whole bucket name
     * Save
-    ![alt text](images/image-33.png)
-    ![alt text](images/image-32.png)
+    ![alt text](Images/image-33.png)
+    ![alt text](Images/image-32.png)
 
 4. Upload updated files on S3
     * Click Upload
-    ![alt text](images/image-34.png)  
+    ![alt text](Images/image-34.png)  
     * Click Add files  
-    ![alt text](images/image-35.png)
+    ![alt text](Images/image-35.png)
     * Click Upload
 
 5. Test Applications
     1. Move to CloudFront
     2. Copy Distribution domain name, and open in a new browser tab
-    ![alt text](images/image-36.png)
+    ![alt text](Images/image-36.png)
     3. Open your browser web developer tools (firefox tool->browser tools-> web developer tools)
     With the browser console open, Click **Sign In**
     When you click the Sign In button a few things happen:- (watch the console)
@@ -201,8 +201,8 @@ Instructions:
     This token is provided as part of the API Call to Cognito
     If successful this exchanges this for Temporary AWS credentials
     These are used to list objects in the private bucket
-    for all objects, presignedURLs are generated and used to load the images in the browser.
-    ![alt text](images/image-38.png)
+    for all objects, presignedURLs are generated and used to load the Images in the browser.
+    ![alt text](Images/image-38.png)
 
 
 ## Finish
@@ -219,7 +219,7 @@ At this point you have a fully functional simple serverless application, complet
 
 
 ## Diagram:
-![alt text](images/image-39.png)
+![alt text](Images/image-39.png)
 
 
 
